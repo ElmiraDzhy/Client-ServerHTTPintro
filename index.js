@@ -1,9 +1,9 @@
 const fs = require("fs/promises");
 
-fs.readFile("./citadelle.txt", { encoding: "utf-8" }).then((res) => {
-	const array = res.split("\n").filter((elem) => elem !== "");
-	const randomIndex = Math.round(Math.random() * array.length - 1);
-	fs.appendFile( "./append.txt", array[ randomIndex ] + '\n', 'utf-8' );
-	// fs.appendFile('./append.txt', '\n', 'utf-8')
-});
+async function appendText(path) {
+	const date =  Date.now();
+	await fs.appendFile(path, `Some error happens at ${date} \n`, "utf-8");
+}
+
+setInterval(() => appendText("./myfile.txt"), 1000);
 
