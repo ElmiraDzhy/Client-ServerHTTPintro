@@ -1,27 +1,16 @@
-const user = {
-	email: "terryzero@gmail.com",
-	username: "mikky",
-	password: "4232hogredf",
-	name: {
-		firstname: "Tom",
-		lastname: "Doe",
-	},
-	address: {
-		city: "london",
-		street: "7835 new road",
-		number: 32,
-	},
-	phone: "1-570-236-7033",
-};
+const { MyMath } = require("./MyMath");
+const MyComponent = require("./MyComponent");
+const { fun1, fun2, fun3, fun4, fun5 } = require("./functions");
 
-const options = {
-	method: "POST",
-	headers: {
-		"Content-Type": "application/json",
-	},
-	body: JSON.stringify(user),
-};
+const res = MyMath.sum(3, 4);
 
-fetch(" https://fakestoreapi.com:443/users", options)
-	.then((res) => res.json())
-	.then(console.log);
+const com = new MyComponent();
+
+console.log(com.render(res));
+
+console.log(fun1());
+console.log(fun2());
+console.log(fun3());
+console.log(fun4());
+console.log(fun5());
+
