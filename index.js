@@ -1,9 +1,8 @@
 const fs = require("fs/promises");
 
-async function appendText(path) {
-	const date =  Date.now();
-	await fs.appendFile(path, `Some error happens at ${date} \n`, "utf-8");
-}
+let file;
 
-setInterval(() => appendText("./myfile.txt"), 1000);
+fs.readFile("./append.txt", { encoding: "utf-8" }).then((res) => {
+	fs.writeFile("./newFileForTask", `${res} \n my text \n `);
+});
 
